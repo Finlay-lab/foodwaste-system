@@ -1,6 +1,6 @@
 # Food Waste Prediction and Management System
 
-Final-year project: predict demand, detect surplus, and support food-waste reduction for food businesses.
+Helps restaurants predict demand and reduce leftover food.
 
 ## Stack
 
@@ -9,22 +9,6 @@ Final-year project: predict demand, detect surplus, and support food-waste reduc
 - Django REST Framework
 - PostgreSQL 16.x
 - Bootstrap 5
-
-## Phase 1
-
-Project foundation: settings, modular apps, home page.
-
-## Phase 2
-
-User authentication and RBAC. Custom `users` table (UUID, `password_hash`, role CHECK). Email/password login, logout, signup for Restaurant Manager and Inventory Staff, and System Administrator user-account management. Role-specific dashboard shells only.
-
-## Phase 3
-
-Business profiles. Restaurant Managers register and update one profile (`business_name`, `business_type`, `location`, `contact_number`, `registration_date`) linked 1:1 to their user. Administrators can list all businesses.
-
-## Phase 4
-
-Food categories. System Administrators add, edit, and delete global categories (`category_name`, `description`) used later to classify food items. PostgreSQL table: `food_categories`.
 
 ## Setup
 
@@ -49,19 +33,14 @@ python manage.py test
 
 `createsuperuser` prompts for email, full name, and password. The account is stored as a System Administrator.
 
-5. Open:
-   - http://127.0.0.1:8000/
-   - http://127.0.0.1:8000/accounts/login/
-   - http://127.0.0.1:8000/accounts/signup/
-   - http://127.0.0.1:8000/admin/
-   - http://127.0.0.1:8000/health/
+5. Open http://127.0.0.1:8000/
 
 ## Project layout
 
-- `config/` — Django project settings and URLs
-- `apps/core/` — home and health endpoints
-- `apps/accounts/` — custom user, login/logout/signup, RBAC, manage user accounts
-- `apps/dashboard/` — role-specific dashboard shells (placeholder content)
-- `apps/business` — business profiles
-- `apps/inventory` — food categories (food items in a later phase)
-- `apps/forecasting`, `recommendations`, `notifications` — reserved for later phases
+- `config/` — Django settings and URLs
+- `apps/core/` — home and health
+- `apps/accounts/` — users, login, signup, roles
+- `apps/dashboard/` — role dashboards
+- `apps/business/` — business profiles
+- `apps/inventory/` — food categories
+- `apps/forecasting`, `recommendations`, `notifications` — later features
