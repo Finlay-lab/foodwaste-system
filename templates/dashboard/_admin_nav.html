@@ -1,0 +1,6 @@
+<a class="nav-link {% if request.resolver_match.url_name == 'system_administrator' %}active{% endif %}" href="{% url 'dashboard:system_administrator' %}">Dashboard</a>
+<a class="nav-link {% if request.resolver_match.app_name == 'accounts' %}active{% endif %}" href="{% url 'accounts:user_list' %}">User Accounts</a>
+<span class="nav-link disabled">Food Categories</span>
+<span class="nav-link disabled">System Settings</span>
+<a class="nav-link" href="{% url 'health' %}">System Health</a>
+<span class="nav-link disabled">Aggregate Analytics</span>

@@ -1,0 +1,39 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.dashboard-shell {
+  min-height: calc(100vh - 9rem);
+}
+
+.dash-sidebar {
+  width: 100%;
+}
+
+.dash-sidebar .nav-link {
+  color: #198754;
+  border-radius: 0.375rem;
+}
+
+.dash-sidebar .nav-link.active {
+  background-color: #198754;
+  color: #fff;
+}
+
+.dash-sidebar .nav-link.disabled {
+  color: #6c757d;
+}
+
+@media (min-width: 992px) {
+  .dash-sidebar {
+    width: 16rem;
+    min-height: calc(100vh - 9rem);
+    flex-shrink: 0;
+  }
+}

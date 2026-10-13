@@ -1,0 +1,45 @@
+{% extends "dashboard/shell.html" %}
+
+{% block title %}User Accounts · Food Waste Prediction and Management System{% endblock %}
+
+{% block sidebar %}
+{% include "dashboard/_admin_nav.html" %}
+{% endblock %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h4 mb-0">User Accounts</h1>
+  <a class="btn btn-success btn-sm" href="{% url 'accounts:user_create' %}">Create user</a>
+</div>
+<p class="text-muted">System Administrator can create accounts, including other administrators, and update role or profile details. Passwords are stored hashed and are never shown in plain text.</p>
+<div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th>Full name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Created</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for account in users %}
+        <tr>
+          <td>{{ account.full_name }}</td>
+          <td>{{ account.email }}</td>
+          <td>{{ account.get_role_display }}</td>
+          <td>{{ account.created_at|date:"Y-m-d H:i" }}</td>
+          <td class="text-end">
+            <a class="btn btn-outline-success btn-sm" href="{% url 'accounts:user_update' account.pk %}">Edit</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5" class="text-muted">No user accounts yet.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

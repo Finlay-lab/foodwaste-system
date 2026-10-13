@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Sign up · Food Waste Prediction and Management System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-7 col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <h1 class="h4 mb-1">Create an account</h1>
+        <p class="text-muted mb-4">
+          Restaurant Managers and Inventory Staff can register. System Administrator accounts are created by an existing administrator.
+        </p>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {% if form.non_field_errors %}
+            <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+          {% endif %}
+          <div class="mb-3">
+            <label class="form-label" for="{{ form.full_name.id_for_label }}">Full name</label>
+            {{ form.full_name }}
+            {% if form.full_name.errors %}
+              <div class="text-danger small">{{ form.full_name.errors }}</div>
+            {% endif %}
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+              <div class="text-danger small">{{ form.email.errors }}</div>
+            {% endif %}
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="{{ form.role.id_for_label }}">Role</label>
+            {{ form.role }}
+            {% if form.role.errors %}
+              <div class="text-danger small">{{ form.role.errors }}</div>
+            {% endif %}
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="{{ form.password1.id_for_label }}">Password</label>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+              <div class="text-danger small">{{ form.password1.errors }}</div>
+            {% endif %}
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="{{ form.password2.id_for_label }}">Confirm password</label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+              <div class="text-danger small">{{ form.password2.errors }}</div>
+            {% endif %}
+          </div>
+          <button type="submit" class="btn btn-success w-100">Create account</button>
+        </form>
+        <p class="text-center small mt-3 mb-0">
+          Already registered?
+          <a href="{% url 'accounts:login' %}">Log in</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

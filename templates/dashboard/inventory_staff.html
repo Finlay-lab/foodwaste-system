@@ -1,0 +1,32 @@
+{% extends "dashboard/shell.html" %}
+
+{% block title %}Inventory Staff Dashboard{% endblock %}
+
+{% block sidebar %}
+<a class="nav-link active" href="{% url 'dashboard:inventory_staff' %}">Dashboard</a>
+<span class="nav-link disabled">Update Stock</span>
+<span class="nav-link disabled">Record Food Waste</span>
+<span class="nav-link disabled">Sales Data</span>
+<span class="nav-link disabled">Surplus Alerts</span>
+<span class="nav-link disabled">Recommendations</span>
+<span class="nav-link disabled">Notifications</span>
+{% endblock %}
+
+{% block dashboard_content %}
+<h1 class="h4 mb-3">Dashboard</h1>
+<p class="text-muted">Placeholder shell for later phases. Stock updates, waste recording, and sales upload are not implemented yet.</p>
+<div class="row g-3">
+  <div class="col-md-4">
+    <div class="card h-100"><div class="card-body"><div class="text-muted small">Active surplus alerts</div><div class="fs-4">—</div></div></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100"><div class="card-body"><div class="text-muted small">Waste logged this week</div><div class="fs-4">—</div></div></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100"><div class="card-body"><div class="text-muted small">New notifications</div><div class="fs-4">—</div></div></div>
+  </div>
+</div>
+<div class="card mt-3">
+  <div class="card-body text-muted">Current stock levels table (Phase 6)</div>
+</div>
+{% endblock %}
