@@ -52,12 +52,12 @@ def user_create(request):
     form = AdminUserCreateForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
         form.save()
-        messages.success(request, "User account created.")
+        messages.success(request, "User created.")
         return redirect("accounts:user_list")
     return render(
         request,
         "accounts/user_form.html",
-        {"form": form, "title": "Create user account"},
+        {"form": form, "title": "Create user"},
     )
 
 
@@ -68,10 +68,10 @@ def user_update(request, pk):
     form = AdminUserUpdateForm(request.POST or None, instance=account)
     if request.method == "POST" and form.is_valid():
         form.save()
-        messages.success(request, "User account updated.")
+        messages.success(request, "User updated.")
         return redirect("accounts:user_list")
     return render(
         request,
         "accounts/user_form.html",
-        {"form": form, "title": "Edit user account", "account": account},
+        {"form": form, "title": "Edit user", "account": account},
     )

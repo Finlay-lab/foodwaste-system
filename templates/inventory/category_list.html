@@ -1,0 +1,41 @@
+{% extends "dashboard/shell.html" %}
+
+{% block title %}{{ title }} · Food Waste Prediction and Management System{% endblock %}
+
+{% block sidebar %}
+{% include "dashboard/_admin_nav.html" %}
+{% endblock %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h4 mb-0">{{ title }}</h1>
+  <a class="btn btn-success btn-sm" href="{% url 'inventory:category_create' %}">Add category</a>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th>Category name</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for category in categories %}
+        <tr>
+          <td>{{ category.category_name }}</td>
+          <td>{{ category.description|default:"—" }}</td>
+          <td class="text-end">
+            <a class="btn btn-outline-success btn-sm" href="{% url 'inventory:category_update' category.pk %}">Edit</a>
+            <a class="btn btn-outline-danger btn-sm" href="{% url 'inventory:category_delete' category.pk %}">Delete</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3" class="text-muted">No food categories yet.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

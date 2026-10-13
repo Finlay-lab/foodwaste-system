@@ -3,6 +3,8 @@ from django.shortcuts import redirect, render
 
 from apps.accounts.decorators import role_required
 from apps.accounts.models import User
+from apps.business.models import BusinessProfile
+from apps.inventory.models import FoodCategory
 
 
 @login_required
@@ -36,5 +38,7 @@ def system_administrator(request):
         {
             "page_title": "System Administrator Dashboard",
             "total_users": User.objects.count(),
+            "total_businesses": BusinessProfile.objects.count(),
+            "total_categories": FoodCategory.objects.count(),
         },
     )

@@ -18,6 +18,14 @@ Project foundation: settings, modular apps, home page.
 
 User authentication and RBAC. Custom `users` table (UUID, `password_hash`, role CHECK). Email/password login, logout, signup for Restaurant Manager and Inventory Staff, and System Administrator user-account management. Role-specific dashboard shells only.
 
+## Phase 3
+
+Business profiles. Restaurant Managers register and update one profile (`business_name`, `business_type`, `location`, `contact_number`, `registration_date`) linked 1:1 to their user. Administrators can list all businesses.
+
+## Phase 4
+
+Food categories. System Administrators add, edit, and delete global categories (`category_name`, `description`) used later to classify food items. PostgreSQL table: `food_categories`.
+
 ## Setup
 
 1. Install Python 3.11+ and PostgreSQL 16. Create a database named `foodwaste`.
@@ -54,4 +62,6 @@ python manage.py test
 - `apps/core/` — home and health endpoints
 - `apps/accounts/` — custom user, login/logout/signup, RBAC, manage user accounts
 - `apps/dashboard/` — role-specific dashboard shells (placeholder content)
-- `apps/business`, `inventory`, `forecasting`, `recommendations`, `notifications` — reserved for later phases
+- `apps/business` — business profiles
+- `apps/inventory` — food categories (food items in a later phase)
+- `apps/forecasting`, `recommendations`, `notifications` — reserved for later phases

@@ -13,6 +13,8 @@ urlpatterns = [
     path("health/", health, name="health"),
     path("api/", include(api_router.urls)),
     path("accounts/", include("apps.accounts.urls")),
+    path("business/", include("apps.business.urls")),
+    path("inventory/", include("apps.inventory.urls")),
     path("dashboard/", include("apps.dashboard.urls")),
     path("", home, name="home"),
 ]

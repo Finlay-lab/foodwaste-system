@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Log in · Food Waste Prediction and Management System{% endblock %}
+{% block title %}Login · Food Waste Prediction and Management System{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
   <div class="col-md-6 col-lg-5">
     <div class="card shadow-sm">
       <div class="card-body p-4">
-        <h1 class="h4 text-center mb-1">Food Waste Prediction and Management System</h1>
-        <p class="text-center text-muted mb-4">Sign in to your account</p>
+        <h1 class="h4 text-center mb-1">Login</h1>
+        <p class="text-center text-muted mb-4">Enter your email and password to continue.</p>
         <form method="post" novalidate>
           {% csrf_token %}
           {% if form.non_field_errors %}
@@ -28,11 +28,11 @@
               <div class="text-danger small">{{ form.password.errors }}</div>
             {% endif %}
           </div>
-          <button type="submit" class="btn btn-success w-100">Log in</button>
+          <button type="submit" class="btn btn-success w-100">Login</button>
         </form>
         <p class="text-center small mt-3 mb-0">
           Need an account?
-          <a href="{% url 'accounts:signup' %}">Sign up as Manager or Staff</a>
+          <a href="{% url 'accounts:signup' %}">Create account</a>
         </p>
       </div>
     </div>

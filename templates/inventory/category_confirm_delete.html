@@ -1,0 +1,17 @@
+{% extends "dashboard/shell.html" %}
+
+{% block title %}{{ title }} · Food Waste Prediction and Management System{% endblock %}
+
+{% block sidebar %}
+{% include "dashboard/_admin_nav.html" %}
+{% endblock %}
+
+{% block dashboard_content %}
+<h1 class="h4 mb-3">{{ title }}</h1>
+<p>Delete <strong>{{ category.category_name }}</strong>?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Delete</button>
+  <a class="btn btn-outline-secondary" href="{% url 'inventory:category_list' %}">Cancel</a>
+</form>
+{% endblock %}

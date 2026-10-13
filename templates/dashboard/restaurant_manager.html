@@ -3,19 +3,11 @@
 {% block title %}Restaurant Manager Dashboard{% endblock %}
 
 {% block sidebar %}
-<a class="nav-link active" href="{% url 'dashboard:restaurant_manager' %}">Dashboard</a>
-<span class="nav-link disabled">Sales Data</span>
-<span class="nav-link disabled">Demand Forecast</span>
-<span class="nav-link disabled">Surplus Alerts</span>
-<span class="nav-link disabled">Recommendations</span>
-<span class="nav-link disabled">Waste Reports</span>
-<span class="nav-link disabled">Notifications</span>
-<span class="nav-link disabled">Business Profile</span>
+{% include "dashboard/_manager_nav.html" %}
 {% endblock %}
 
 {% block dashboard_content %}
 <h1 class="h4 mb-3">Dashboard</h1>
-<p class="text-muted">Placeholder shell for later phases. KPI cards and the predicted-versus-actual chart will be implemented in dashboards and reporting.</p>
 <div class="row g-3">
   <div class="col-6 col-xl-3">
     <div class="card h-100"><div class="card-body"><div class="text-muted small">Items sold (this week)</div><div class="fs-4">—</div></div></div>
@@ -31,6 +23,6 @@
   </div>
 </div>
 <div class="card mt-3">
-  <div class="card-body text-muted">Demand forecast — predicted vs actual chart (Phase 13)</div>
+  <div class="card-body text-muted">Demand forecast</div>
 </div>
 {% endblock %}

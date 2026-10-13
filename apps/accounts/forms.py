@@ -74,9 +74,7 @@ class SignupForm(forms.ModelForm):
     def clean_role(self):
         role = self.cleaned_data["role"]
         if role not in User.REGISTERABLE_ROLES:
-            raise forms.ValidationError(
-                "Only Restaurant Manager and Inventory Staff can register."
-            )
+            raise forms.ValidationError("Please choose a valid role.")
         return role
 
     def clean_password2(self):

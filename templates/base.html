@@ -41,6 +41,16 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'accounts:user_list' %}">User Accounts</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'business:list' %}">Businesses</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'inventory:category_list' %}">Food Categories</a>
+                </li>
+              {% elif user.is_restaurant_manager %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'business:manage' %}">Business Profile</a>
+                </li>
               {% endif %}
               <li class="nav-item">
                 <span class="navbar-text text-white ms-lg-3">
@@ -51,15 +61,15 @@
               <li class="nav-item ms-lg-2">
                 <form method="post" action="{% url 'accounts:logout' %}" class="d-inline">
                   {% csrf_token %}
-                  <button type="submit" class="btn btn-outline-light btn-sm">Log out</button>
+                  <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
                 </form>
               </li>
             {% else %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'accounts:login' %}">Log in</a>
+                <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'accounts:signup' %}">Sign up</a>
+                <a class="nav-link" href="{% url 'accounts:signup' %}">Create account</a>
               </li>
             {% endif %}
           </ul>

@@ -5,19 +5,14 @@
   <div class="col-lg-8">
     <h1 class="mb-3">Food Waste Prediction and Management System</h1>
     <p class="lead">
-      Demand forecasting, surplus detection, and food-waste reduction for food businesses.
+      Helps restaurants predict demand and reduce leftover food.
     </p>
     {% if user.is_authenticated %}
-      <div class="alert alert-success" role="status">
-        Signed in as {{ user.full_name }} ({{ user.get_role_display }}).
-      </div>
-      <a class="btn btn-success" href="{{ user.get_dashboard_url }}">Go to dashboard</a>
+      <p>Signed in as {{ user.full_name }} ({{ user.get_role_display }}).</p>
+      <a class="btn btn-success" href="{{ user.get_dashboard_url }}">Dashboard</a>
     {% else %}
-      <div class="alert alert-success" role="status">
-        Sign in to open your role-specific dashboard. Restaurant Managers and Inventory Staff can create an account; a System Administrator manages all user accounts.
-      </div>
-      <a class="btn btn-success me-2" href="{% url 'accounts:login' %}">Log in</a>
-      <a class="btn btn-outline-success" href="{% url 'accounts:signup' %}">Sign up</a>
+      <a class="btn btn-success me-2" href="{% url 'accounts:login' %}">Login</a>
+      <a class="btn btn-outline-success" href="{% url 'accounts:signup' %}">Create account</a>
     {% endif %}
   </div>
 </div>

@@ -1,0 +1,8 @@
+<a class="nav-link {% if request.resolver_match.url_name == 'restaurant_manager' %}active{% endif %}" href="{% url 'dashboard:restaurant_manager' %}">Dashboard</a>
+<a class="nav-link {% if request.resolver_match.app_name == 'business' %}active{% endif %}" href="{% url 'business:manage' %}">Business Profile</a>
+<span class="nav-link disabled">Sales Data</span>
+<span class="nav-link disabled">Demand Forecast</span>
+<span class="nav-link disabled">Surplus Alerts</span>
+<span class="nav-link disabled">Recommendations</span>
+<span class="nav-link disabled">Waste Reports</span>
+<span class="nav-link disabled">Notifications</span>
